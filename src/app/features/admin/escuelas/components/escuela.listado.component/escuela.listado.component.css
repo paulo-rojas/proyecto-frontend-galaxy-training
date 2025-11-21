@@ -1,0 +1,182 @@
+
+mat-card {
+  margin: 20px auto;
+  width: 100%;
+  max-width: 1400px;
+}
+
+.search-card {
+  max-width: 800px !important;
+}
+
+mat-toolbar {
+  gap: 10px;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  width: 100%;
+}
+
+.loading-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+  gap: 20px;
+}
+
+.error-card {
+  margin: 20px 0;
+}
+
+.error-card mat-card-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  padding: 20px;
+}
+
+.error-card mat-icon {
+  font-size: 48px;
+  width: 48px;
+  height: 48px;
+}
+
+/* === Contenedor principal de filtros === */
+.filters-container {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  width: 100%;
+}
+
+/* === Cada fila de filtro === */
+.filter-row {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+}
+
+.filter-row mat-card-subtitle {
+  font-weight: 500;
+  font-size: 14px;
+  color: rgba(0, 0, 0, 0.87);
+  margin: 0;
+}
+
+/* === Formularios de filtros === */
+.filter-form {
+  display: flex;
+  gap: 16px;
+  width: 100%;
+  align-items: flex-start;
+}
+
+.filter-form mat-form-field {
+  flex: 1;
+  min-width: 120px;
+}
+
+.filter-form mat-form-field.full-width {
+  width: 100%;
+}
+
+/* === Opciones de autocomplete === */
+.autocomplete-option {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 8px 0;
+}
+
+.autocomplete-option strong {
+  font-size: 14px;
+  color: #333;
+}
+
+.autocomplete-option small {
+  font-size: 12px;
+  color: #666;
+}
+
+
+.table-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.table-container {
+  overflow-x: auto;
+  width: 100%;
+}
+
+table {
+  width: 100%;
+  min-width: 600px;
+}
+
+@media (max-width: 1024px) {
+  .search-card {
+    max-width: 100% !important;
+  }
+
+  .container {
+    padding: 16px;
+  }
+
+  mat-card {
+    margin: 16px;
+  }
+}
+
+/* Tablets pequeños */
+@media (max-width: 768px) {
+  .filter-form {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .filter-form mat-form-field {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .container {
+    padding: 12px;
+  }
+
+  mat-card {
+    margin: 12px;
+  }
+}
+
+/* Móviles */
+@media (max-width: 480px) {
+  .filters-container {
+    gap: 20px;
+  }
+
+  .filter-row mat-card-subtitle {
+    font-size: 12px;
+  }
+
+  .container {
+    padding: 8px;
+  }
+
+  mat-card {
+    margin: 8px;
+  }
+
+  .table-container {
+    margin: 0 -8px;
+  }
+}

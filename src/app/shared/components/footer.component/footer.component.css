@@ -1,0 +1,102 @@
+.footer {
+  background-color: #1a1a1a;
+  color: white;
+  margin-top: auto;
+}
+
+.footer-content {
+  background-color: #1a1a1a;
+  padding: 2rem 1rem;
+  height: auto;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.footer-section {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.section-title {
+  color: #dc2626;
+  font-size: 0.875rem;
+  font-weight: 600;
+  margin: 0 0 0.5rem 0;
+}
+
+.section-text {
+  color: #e5e5e5;
+  font-size: 0.875rem;
+  margin: 0;
+}
+
+.info-row {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #e5e5e5;
+}
+
+.info-icon {
+  color: #dc2626;
+  font-size: 1.25rem;
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+.phone-section {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.phone-icon {
+  color: #dc2626;
+}
+
+.phone-number {
+  color: white;
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.footer-link {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #e5e5e5;
+  text-decoration: none;
+  font-size: 0.875rem;
+}
+
+.footer-link mat-icon {
+  font-size: 1rem;
+  width: 1rem;
+  height: 1rem;
+  color: #dc2626;
+}
+
+.footer-link:hover {
+  color: #dc2626;
+}
+
+.footer-bottom {
+  background-color: #000;
+  height: auto;
+  padding: 1rem;
+  justify-content: center;
+}
+
+.copyright {
+  color: #a3a3a3;
+  font-size: 0.8rem;
+  text-align: center;
+}

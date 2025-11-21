@@ -1,0 +1,115 @@
+<div class="container">
+  <mat-card>
+    <mat-card-header class="mat-card-header">
+      <mat-card-title>Registro de Escuela de Conducción</mat-card-title>
+      <button mat-button color="warn" (click)="openCancelDialog()">Cancelar</button>
+    </mat-card-header>
+
+    <mat-card-content>
+      <form [formGroup]="registroForm" class="form-container">
+
+        <!-- Información General -->
+        <div class="form-section">
+          <h3 class="section-title">Información General</h3>
+          <div class="form-grid">
+            <mat-form-field>
+              <mat-label>Nombre del Establecimiento</mat-label>
+              <input matInput formControlName="nombre" />
+              @if (registroForm.get('nombre')?.hasError('required')) {
+              <mat-error>El nombre del establecimiento es requerido</mat-error>
+              }
+            </mat-form-field>
+
+            <mat-form-field>
+              <mat-label>RUC</mat-label>
+              <input matInput formControlName="ruc" onchange=""/>
+              @if (registroForm.get('ruc')?.hasError('required')) {
+              <mat-error>El RUC es requerido</mat-error>
+              }
+              @if (registroForm.get('ruc')?.hasError('minlength') || registroForm.get('ruc')?.hasError('maxlength')) {
+              <mat-error>El RUC debe tener 11 caracteres</mat-error>
+              }
+              @if (registroForm.get('ruc')?.hasError('pattern')) {
+              <mat-error>El RUC debe contener solo números</mat-error>
+              }
+            </mat-form-field>
+
+            <mat-form-field>
+              <mat-label>Estado</mat-label>
+              <mat-select formControlName="estado">
+                <mat-option value="1">Con Autorización</mat-option>
+                <mat-option value="0">Sin Autorización</mat-option>
+              </mat-select>
+              @if (registroForm.get('estado')?.hasError('required')) {
+              <mat-error>El estado es requerido</mat-error>
+              }
+            </mat-form-field>
+          </div>
+        </div>
+
+        <!-- Dirección -->
+        <div class="form-section" formGroupName="direccion">
+          <h3 class="section-title">Dirección</h3>
+
+
+          <div class="form-grid">
+            <mat-form-field>
+              <mat-label>Departamento</mat-label>
+              <mat-select formControlName="departamento" (selectionChange)="loadProvincias($event.value)">
+                @for (d of departamentos(); track d.id) {
+                <mat-option [value]="d.id">{{d.nombre}}</mat-option>
+                }
+              </mat-select>
+              @if (registroForm.get('direccion')?.get('departamento')?.hasError('required')) {
+              <mat-error>El departamento es requerido</mat-error>
+              }
+            </mat-form-field>
+
+            <mat-form-field>
+              <mat-label>Provincia</mat-label>
+              <mat-select formControlName="provincia" (selectionChange)="loadDistritos($event.value)">
+                @for (p of provincias(); track p.id) {
+                <mat-option [value]="p.id">{{p.nombre}}</mat-option>
+                }
+              </mat-select>
+              @if (registroForm.get('direccion')?.get('provincia')?.hasError('required')) {
+              <mat-error>La provincia es requerida</mat-error>
+              }
+            </mat-form-field>
+
+            <mat-form-field>
+              <mat-label>Distrito</mat-label>
+              <mat-select formControlName="distrito">
+                @for (d of distritos(); track d.id) {
+                <mat-option [value]="d.id">{{d.nombre}}</mat-option>
+                }
+              </mat-select>
+              @if (registroForm.get('direccion')?.get('distrito')?.hasError('required')) {
+              <mat-error>El distrito es requerido</mat-error>
+              }
+            </mat-form-field>
+          </div>
+
+          <mat-form-field class="full-width">
+            <mat-label>Detalle de Dirección</mat-label>
+            <input matInput formControlName="detalle" />
+            @if (registroForm.get('direccion')?.get('detalle')?.hasError('required')) {
+            <mat-error>El detalle de la dirección es requerido</mat-error>
+            }
+          </mat-form-field>
+
+        </div>
+
+      </form>
+    </mat-card-content>
+
+    <mat-card-actions [align]="'end'">
+
+
+      <button mat-raised-button color="warn" (click)="registroForm.reset()">Limpiar</button>
+      <button mat-raised-button color="primary" (click)="openRegisterDialog()" [disabled]="registroForm.invalid">
+        Registrar Escuela
+      </button>
+    </mat-card-actions>
+  </mat-card>
+</div>
