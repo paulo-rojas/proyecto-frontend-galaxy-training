@@ -1,0 +1,55 @@
+mat-card {
+  margin: 20px auto;
+  width: 100%;
+  max-width: 1400px;
+}
+
+.table-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.table-container {
+  overflow-x: auto;
+  width: 100%;
+}
+
+table {
+  width: 100%;
+  min-width: 600px;
+}
+
+.no-data-message {
+  text-align: center;
+  padding: 20px;
+}
+
+.paginator-info {
+  text-align: center;
+  padding: 12px;
+  font-size: 14px;
+  color: rgba(0, 0, 0, 0.6);
+}
+
+@media (max-width: 1024px) {
+  mat-card {
+    margin: 16px;
+  }
+}
+
+@media (max-width: 768px) {
+  mat-card {
+    margin: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  mat-card {
+    margin: 8px;
+  }
+
+  .table-container {
+    margin: 0 -8px;
+  }
+}

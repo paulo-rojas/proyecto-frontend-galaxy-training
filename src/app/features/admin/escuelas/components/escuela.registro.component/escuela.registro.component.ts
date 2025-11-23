@@ -123,6 +123,9 @@ export class EscuelaRegistroComponent implements OnInit {
   }
 
   registrarEscuela(): void {
+    console.log('=== INICIANDO REGISTRO DE ESCUELA ===');
+    console.log('Formulario válido?', this.registroForm.valid);
+
     if (this.registroForm.valid) {
       const formValue = this.registroForm.value;
       this.escuelaConductorRequestDto = {
@@ -133,18 +136,36 @@ export class EscuelaRegistroComponent implements OnInit {
         distritoId: formValue.direccion.distrito,
       };
       console.log('Escuela a registrar:', this.escuelaConductorRequestDto);
+      console.log('Llamando al servicio...');
+
       this.escuelaService.crearEscuela(this.escuelaConductorRequestDto).subscribe({
         next: (response) => {
-          console.log('Escuela registrada con éxito:', response);
-          this.router.navigate(['/admin/escuelas']);
+          console.log('✅ Escuela registrada con éxito:', response);
+          this.router.navigate(['/admin/escuelas']).then(() => {
+            window.location.reload();
+          });
         },
         error: (error) => {
+          console.error('❌ Error al registrar escuela:', error);
+          console.error('Error completo:', JSON.stringify(error, null, 2));
           this.errorDto = error.error;
           this.openErrorDialog(this.errorDto);
         },
+        complete: () => {
+          console.log('=== SUBSCRIPTION COMPLETED ===');
+        }
       });
+
+      console.log('Suscripción creada');
     } else {
-      console.log('Formulario inválido');
+      console.log('❌ Formulario inválido');
+      console.log('Errores del formulario:', this.registroForm.errors);
+      Object.keys(this.registroForm.controls).forEach(key => {
+        const control = this.registroForm.get(key);
+        if (control && control.invalid) {
+          console.log(`Campo ${key} inválido:`, control.errors);
+        }
+      });
     }
   }
 
@@ -166,7 +187,6 @@ export class EscuelaRegistroComponent implements OnInit {
     dialogRef.afterClosed().subscribe((resultado) => {
       if (resultado) {
         this.registrarEscuela();
-        this.router.navigate(['/admin/escuelas']);
       } else {
         alert('Usuario canceló');
       }

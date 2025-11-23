@@ -17,6 +17,7 @@ import { ProvinciaDto } from "../../../../../shared/models/Provincia.model";
 import { DireccionService } from "../../../../../shared/services/direccion.service";
 import { EscuelaConductorRequestDto, EscuelaConductorResponseDto } from "../../models/gestion.models";
 import { EscuelaService } from "../../services/escuela-service";
+import { ToastrService } from "ngx-toastr";
 
 @Component({
   selector: 'app-escuela-editar',
@@ -35,6 +36,7 @@ import { EscuelaService } from "../../services/escuela-service";
   styleUrl: './escuela.editar.component.css',
 })
 export class EscuelaEditarComponent implements OnInit {
+  private toastr = inject(ToastrService);
   private fb = inject(FormBuilder);
   protected registroForm!: FormGroup;
   private escuelaService = inject(EscuelaService);
@@ -215,10 +217,11 @@ export class EscuelaEditarComponent implements OnInit {
       console.log('Escuela a actualizar:', this.escuelaConductorRequestDto);
       this.escuelaService.actualizarEscuela(this.escuelaId, this.escuelaConductorRequestDto).subscribe({
         next: (response) => {
-          console.log('Escuela actualizada con éxito:', response);
+          this.toastr.success('Escuela actualizada exitosamente.');
           this.router.navigate(['/admin/escuelas']);
         },
         error: (error) => {
+          this.toastr.error('Error al actualizar la escuela.');
           console.error('Error al actualizar la escuela:', error);
         },
       });

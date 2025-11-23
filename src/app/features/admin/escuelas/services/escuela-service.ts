@@ -22,23 +22,25 @@ export class EscuelaService {
     return this.http.get<EscuelaConductorResponseDto>(`${this.baseUrl}/ruc/${ruc}`);
   }
 
-  public getEscuelaByNombre(nombre: string): Observable<PagedEscuelasResponse> {
-    return this.http.get<PagedEscuelasResponse>(`${this.baseUrl}/nombre?nombre=${nombre}`);
+  public getEscuelaByNombre(nombre: string, page: number = 0, size: number = 10): Observable<PagedEscuelasResponse> {
+    return this.http.get<PagedEscuelasResponse>(`${this.baseUrl}/nombre?nombre=${nombre}&page=${page}&size=${size}`);
   }
 
-  public getEscuelaByDistrito(distritoId: number): Observable<PagedEscuelasResponse> {
-    return this.http.get<PagedEscuelasResponse>(`${this.baseUrl}/distrito/${distritoId}`);
+  public getEscuelaByDistrito(distritoId: number, page: number = 0, size: number = 10): Observable<PagedEscuelasResponse> {
+    return this.http.get<PagedEscuelasResponse>(`${this.baseUrl}/distrito/${distritoId}?page=${page}&size=${size}`);
   }
 
-  public getEscuelaByProvincia(provinciaId: number): Observable<PagedEscuelasResponse> {
-    return this.http.get<PagedEscuelasResponse>(`${this.baseUrl}/provincia/${provinciaId}`);
+  public getEscuelaByProvincia(provinciaId: number, page: number = 0, size: number = 10): Observable<PagedEscuelasResponse> {
+    return this.http.get<PagedEscuelasResponse>(`${this.baseUrl}/provincia/${provinciaId}?page=${page}&size=${size}`);
   }
 
-  public getEscuelaByDepartamento(departamentoId: number): Observable<PagedEscuelasResponse> {
-    return this.http.get<PagedEscuelasResponse>(`${this.baseUrl}/departamento/${departamentoId}`);
+  public getEscuelaByDepartamento(departamentoId: number, page: number = 0, size: number = 10): Observable<PagedEscuelasResponse> {
+    return this.http.get<PagedEscuelasResponse>(`${this.baseUrl}/departamento/${departamentoId}?page=${page}&size=${size}`);
   }
 
-  public crearEscuela(escuela: EscuelaConductorRequestDto) {
+  public crearEscuela(escuela: EscuelaConductorRequestDto): Observable<EscuelaConductorResponseDto> {
+    console.log('📤 SERVICE: Enviando POST a:', this.baseUrl);
+    console.log('📤 SERVICE: Datos:', escuela);
     return this.http.post<EscuelaConductorResponseDto>(this.baseUrl, escuela);
   }
 
