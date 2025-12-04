@@ -1,0 +1,39 @@
+<div class="container">
+  <mat-card-header>
+    <mat-card-title>
+      <mat-toolbar>
+        <span>Gestión de Escuelas de Conducción</span>
+      </mat-toolbar>
+    </mat-card-title>
+  </mat-card-header>
+
+  <app-escuela-busqueda (buscarOutput)="buscar($event)" (limpiarOutput)="limpiarFiltro()"></app-escuela-busqueda>
+
+  @if (isLoading()) {
+  <div class="loading-container">
+    <mat-spinner></mat-spinner>
+    <p>Cargando escuelas...</p>
+  </div>
+  }
+
+  @if (isError()) {
+  <mat-card appearance="outlined" class="error-card">
+    <mat-card-content>
+      <mat-icon color="warn">error</mat-icon>
+      <p>Error al cargar las escuelas. Por favor, intente nuevamente.</p>
+    </mat-card-content>
+  </mat-card>
+  }
+
+  @if (!isLoading() && !isError()) {
+    <!--
+    INPUTS:
+      escuelas
+      pageInfo
+    OUTPUTS:
+      action: emite la acción seleccionada (edit, delete, updateStatus), junto con la escuela correspondiente
+      pageChance: recibe las instrucciones de paginado
+    -->
+  <app-escuela-tabla [escuelas]="escuelas()" [pageInfo]="pageInfo()" (action)="onTableAction($event)" (pageChange)="onPageChange($event)"></app-escuela-tabla>
+  }
+</div>

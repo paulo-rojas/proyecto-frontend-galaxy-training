@@ -47,6 +47,10 @@
               "optimization": false,
               "extractLicenses": false,
               "sourceMap": true
+            },
+            "sandbox": {
+              "browserTarget": "frontend:build",
+              "main": "src/main.sandbox.ts"
             }
           },
           "defaultConfiguration": "production"
