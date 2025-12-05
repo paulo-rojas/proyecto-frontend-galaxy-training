@@ -1,7 +1,7 @@
 import { Component, inject } from '@angular/core';
 import { MatButtonModule, MatIconButton } from '@angular/material/button';
 import { FormBuilder, ReactiveFormsModule } from '@angular/forms';
-import { PublicNavbarComponent } from '../../layout/components/navbar-public/public.navbar.component';
+import { PublicNavbarComponent } from '../../layout/components/public-navbar/public.navbar.component';
 import { MatCardModule, MatCardContent } from '@angular/material/card';
 import { MatInputModule } from '@angular/material/input';
 import { FooterComponent } from '../../../shared/components/footer/footer.component';

@@ -5,9 +5,11 @@
       <span class="navbar-title">Dirección General de Autorización de Transporte</span>
     </div>
     <div class="navbar-right">
+      @if (showLoginButton()) {
       <button mat-raised-button color="primary" routerLink="/login">
         Iniciar Sesión
       </button>
+    }
     </div>
   </div>
 </nav>

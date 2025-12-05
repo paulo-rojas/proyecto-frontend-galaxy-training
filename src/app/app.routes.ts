@@ -5,11 +5,11 @@ import {ActualizarDialogComponent} from './features/escuelas/components/actualiz
 export const routes: Routes = [
   {
     path: '',
-    redirectTo: 'escuelas',
+    redirectTo: 'public',
     pathMatch: 'full',
   },
   {
-    path: 'escuelas',
+    path: 'public',
     loadChildren: () => import('./public/public.routes').then(m => m.PUBLIC_ROUTES),
   },
   {

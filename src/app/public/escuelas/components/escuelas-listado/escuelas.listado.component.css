@@ -4,6 +4,14 @@
   padding: 1rem;
 }
 
+mat-card-title {
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+}
+
 app-escuela-busqueda {
   display: block;
   width: 100%;

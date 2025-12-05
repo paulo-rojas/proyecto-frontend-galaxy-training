@@ -1,0 +1,14 @@
+<mat-card>
+    <mat-card-title>Panel de Administración</mat-card-title>
+    <mat-card-content>
+        <mat-chip-listbox class="mat-mdc-chip-set-stacked">
+            <mat-chip-option class="custom-chip" (click)="onChipSelected('Inicio')">
+                <mat-icon>home</mat-icon>
+                Inicio
+            </mat-chip-option>
+            @for (option of options; track $index) {
+                <mat-chip-option class="custom-chip" (click)="onChipSelected(option)">{{option}}</mat-chip-option>
+            }
+        </mat-chip-listbox>
+    </mat-card-content>
+</mat-card>

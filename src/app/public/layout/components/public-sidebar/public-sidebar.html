@@ -1,0 +1,15 @@
+<mat-card>
+    <mat-card-title>Licencias de conducir</mat-card-title>
+    <mat-card-content>
+        <mat-chip-listbox class="mat-mdc-chip-set-stacked">
+
+            <mat-chip-option class="custom-chip" (click)="onChipSelected('Inicio')" selected>
+                <mat-icon>home</mat-icon>
+                    Inicio
+            </mat-chip-option>
+            @for (o of options; track $index) {
+                <mat-chip-option class="custom-chip" (click)="onChipSelected(o)">{{o}}</mat-chip-option>
+            }
+        </mat-chip-listbox>
+    </mat-card-content>
+</mat-card>

@@ -1,0 +1,54 @@
+.container {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+}
+
+.sidenav-container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    flex: 1;
+}
+
+mat-sidenav-container {
+    width: 100%;
+    max-width: 1300px;
+}
+
+mat-sidenav-content {
+    padding: 1rem;
+}
+
+app-footer-component {
+    margin-top: auto;
+}
+
+mat-sidenav {
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+}
+
+app-admin-sidebar {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+header {
+    display: flex;
+    justify-content: center;
+    padding: 1rem;
+    background-color: #bf0909;
+    color: white;
+}
+
+@media (max-width: 1000px) {
+    app-admin-sidebar {
+        max-height: 300px;
+    }
+}

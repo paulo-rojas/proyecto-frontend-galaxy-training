@@ -8,8 +8,13 @@ export const ADMIN_ROUTES: Routes = [
     children: [
       {
         path: '',
-        redirectTo: 'escuelas',
+        redirectTo: 'inicio',
         pathMatch: 'full',
+      },
+      {
+        path: 'inicio',
+        loadComponent: () => import('./home/components/admin-home/admin-home')
+          .then(m => m.AdminHomeComponent),
       },
       {
         path: 'escuelas',
@@ -30,6 +35,16 @@ export const ADMIN_ROUTES: Routes = [
         path: 'escuelas/listado',
         loadComponent: () => import('./escuelas/components/escuela-listado/escuela.listado.component')
           .then(m => m.EscuelaListadoComponent),
+      },
+      {
+        path: 'centros-medicos',
+        loadComponent: () => import("./../shared/components/page-not-found-component/page-not-found-component")
+          .then(m => m.PageNotFoundComponent),
+      },
+      {
+        path: 'centros-evaluacion',
+        loadComponent: () => import("./../shared/components/page-not-found-component/page-not-found-component")
+          .then(m => m.PageNotFoundComponent),
       }
     ],
   },
