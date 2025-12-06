@@ -16,7 +16,7 @@
 
 mat-sidenav-container {
     width: 100%;
-    max-width: 1300px;
+    max-width: 98%;
 }
 
 mat-sidenav-content {

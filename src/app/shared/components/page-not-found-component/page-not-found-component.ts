@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
-import {MatCard, MatCardActions, MatCardContent, MatCardTitle} from '@angular/material/card';
+import {MatCard, MatCardContent, MatCardTitle} from '@angular/material/card';
 import { MatButtonModule} from '@angular/material/button';
-import {RouterLink} from '@angular/router';
 import {MatIcon} from '@angular/material/icon';
 
 @Component({
@@ -10,9 +9,7 @@ import {MatIcon} from '@angular/material/icon';
     MatCard,
     MatCardTitle,
     MatCardContent,
-    MatCardActions,
     MatButtonModule,
-    RouterLink,
     MatIcon
   ],
   templateUrl: './page-not-found-component.html',

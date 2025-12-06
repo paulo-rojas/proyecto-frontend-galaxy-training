@@ -17,4 +17,12 @@ export class LoginService {
     return this.httpClient.post<LoginResponse>(`${this.url}/login`,LoginRequest);
   }
 
+  authenticateBasic(credentials: string): Observable<any> {
+    return this.httpClient.get(`${environment.API_BASE}/api/auth/me`, {
+      headers: {
+        Authorization: `Basic ${credentials}`
+      }
+    });
+  }
+
 }

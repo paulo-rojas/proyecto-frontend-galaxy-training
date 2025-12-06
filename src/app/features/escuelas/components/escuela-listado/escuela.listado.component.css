@@ -1,7 +1,24 @@
 .container {
   margin: 0 auto;
-  max-width: 1200px;
+  max-width: 95%;
   padding: 1rem;
+}
+
+mat-card {
+  max-width: 100%;
+  width: 100%;
+}
+
+mat-card-title {
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+}
+
+mat-card-content {
+  padding: 1.5rem;
 }
 
 app-escuela-busqueda {
@@ -31,8 +48,4 @@ app-escuela-tabla {
   display: flex;
   align-items: center;
   gap: 0.5rem;
-}
-
-mat-toolbar {
-  justify-content: center;
 }

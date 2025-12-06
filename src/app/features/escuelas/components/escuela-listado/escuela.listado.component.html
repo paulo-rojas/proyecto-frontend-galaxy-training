@@ -1,12 +1,7 @@
-<div class="container">
-  <mat-card-header>
-    <mat-card-title>
-      <mat-toolbar>
-        <span>Gestión de Escuelas de Conducción</span>
-      </mat-toolbar>
-    </mat-card-title>
-  </mat-card-header>
+<mat-card>
+  <mat-card-title >Escuelas de Conductores</mat-card-title>
 
+  <mat-card-content>
   <app-escuela-busqueda (buscarOutput)="buscar($event)" (limpiarOutput)="limpiarFiltro()"></app-escuela-busqueda>
 
   @if (isLoading()) {
@@ -36,4 +31,5 @@
     -->
   <app-escuela-tabla [escuelas]="escuelas()" [pageInfo]="pageInfo()" (action)="onTableAction($event)" (pageChange)="onPageChange($event)"></app-escuela-tabla>
   }
-</div>
+  </mat-card-content>
+</mat-card>
