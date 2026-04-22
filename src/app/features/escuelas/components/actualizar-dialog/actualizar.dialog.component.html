@@ -1,0 +1,31 @@
+<h2 mat-dialog-title>Actualizar estado de la autorización</h2>
+
+<mat-dialog-content>
+  <p class="dialog-description">
+    Seleccione el tipo de autorización para actualizar el estado de la escuela:
+  </p>
+
+  <mat-radio-group [(ngModel)]="tipoAutorizacion" class="radio-group">
+    <mat-radio-button value="1" class="radio-option">
+      <div class="option-content">
+        <mat-icon class="option-icon success">check_circle</mat-icon>
+          <strong>Con Autorización</strong>
+      </div>
+    </mat-radio-button>
+
+    <mat-radio-button value="0" class="radio-option">
+      <div class="option-content">
+        <mat-icon class="option-icon warning">cancel</mat-icon>
+          <strong>Sin Autorización</strong>
+      </div>
+    </mat-radio-button>
+  </mat-radio-group>
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+  <button mat-button color="warn" (click)="cancelar()">Cancelar</button>
+  <button mat-raised-button color="primary" (click)="confirmar()" [disabled]="!tipoAutorizacion">
+
+    Actualizar
+  </button>
+</mat-dialog-actions>

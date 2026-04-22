@@ -1,0 +1,83 @@
+<mat-card class="search-card">
+  <mat-card-header>
+    <mat-card-title>Buscar Escuela de Conducción</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <div class="filters-container">
+
+      <!-- Filtro por Texto -->
+      <div class="filter-row">
+        <mat-card-subtitle>Filtrar Dirección por Texto</mat-card-subtitle>
+        <form class="filter-form" [formGroup]="manualDireccionForm">
+          <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Dirección</mat-label>
+            <input matInput formControlName="direccion" placeholder="Ingrese ubicación (Ej. La Libertad, Trujillo, Trujillo)"
+              [matAutocomplete]="auto" />
+            <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn"
+              (optionSelected)="onDireccionSeleccionada($event.option.value)">
+              @for (direccion of direccionesFiltradas(); track direccion.distritoId) {
+              <mat-option [value]="direccion">
+                <div class="autocomplete-option">
+                  <strong>{{direccion.posibleDireccion}}</strong>
+                </div>
+              </mat-option>
+              }
+              @if (direccionesFiltradas().length === 0 && manualDireccionForm.get('direccion')?.value?.length >= 2) {
+              <mat-option disabled>
+                <em>No se encontraron direcciones</em>
+              </mat-option>
+              }
+            </mat-autocomplete>
+          </mat-form-field>
+        </form>
+      </div>
+
+      <!-- Filtro por Selección -->
+      <div class="filter-row">
+        <mat-card-subtitle>Filtrar Dirección Manualmente</mat-card-subtitle>
+        <form class="filter-form" [formGroup]="selectDireccionForm">
+          <mat-form-field>
+            <mat-label>Departamento</mat-label>
+            <mat-select formControlName="departamento" (selectionChange)="onDepartamentoChange($event.value)">
+              <mat-option [value]="-1">--Todos--</mat-option>
+              @for (d of departamentos(); track d.id) {
+              <mat-option [value]="d.id">
+                {{d.nombre}}
+              </mat-option>
+              }
+            </mat-select>
+          </mat-form-field>
+
+          <mat-form-field>
+            <mat-label>Provincia</mat-label>
+            <mat-select formControlName="provincia" (selectionChange)="onProvinciaChange($event.value)">
+              <mat-option [value]="-1">--Todos--</mat-option>
+              @for (p of provincias(); track p.id) {
+              <mat-option [value]="p.id">
+                {{p.nombre}}
+              </mat-option>
+              }
+            </mat-select>
+          </mat-form-field>
+
+          <mat-form-field>
+            <mat-label>Distrito</mat-label>
+            <mat-select formControlName="distrito">
+              <mat-option [value]="-1">--Todos--</mat-option>
+              @for (d of distritos(); track d.id) {
+              <mat-option [value]="d.id">
+                {{d.nombre}}
+              </mat-option>
+              }
+            </mat-select>
+          </mat-form-field>
+        </form>
+      </div>
+
+    </div>
+  </mat-card-content>
+  <mat-card-actions align="end">
+    <button mat-raised-button (click)="buscar()">Buscar</button>
+    <button mat-raised-button (click)="limpiar()">Limpiar</button>
+  </mat-card-actions>
+</mat-card>

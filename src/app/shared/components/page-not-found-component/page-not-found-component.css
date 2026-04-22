@@ -1,0 +1,41 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.not-found-card {
+  max-width: 500px;
+  text-align: center;
+  padding: 20px;
+}
+
+.error-icon {
+  font-size: 80px;
+  width: 80px;
+  height: 80px;
+  color: #f44336;
+  margin-bottom: 10px;
+}
+
+.error-code {
+  font-size: 72px;
+  font-weight: bold;
+  margin: 0;
+  color: #333;
+}
+
+mat-card-title {
+  font-size: 24px;
+  margin: 16px 0;
+}
+
+p {
+  font-size: 16px;
+  color: #666;
+  margin-bottom: 24px;
+}
+
+mat-card-actions {
+  padding-bottom: 16px;
+}

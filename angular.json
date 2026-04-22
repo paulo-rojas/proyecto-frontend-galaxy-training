@@ -22,7 +22,9 @@
               }
             ],
             "styles": [
-              "src/styles.css"
+              "src/custom-theme.scss",
+              "src/styles.css",
+              "node_modules/ngx-toastr/toastr.css"
             ]
           },
           "configurations": {
@@ -45,6 +47,10 @@
               "optimization": false,
               "extractLicenses": false,
               "sourceMap": true
+            },
+            "sandbox": {
+              "browserTarget": "frontend:build",
+              "main": "src/main.sandbox.ts"
             }
           },
           "defaultConfiguration": "production"
@@ -75,7 +81,8 @@
               }
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.css",
+              "node_modules/ngx-toastr/toastr.css"
             ]
           }
         }

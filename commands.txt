@@ -1,0 +1,9 @@
+java -jar target/backend-0.0.1-SNAPSHOT.jar
+# compilar el proyecto
+mvn compile
+# compilar y empacar en un JAR
+mvn package
+# ejecutar spring boot
+mvn spring-boot:run
+# ejecutar el JAR generado
+java -jar target/backend-0.0.1-SNAPSHOT.jar

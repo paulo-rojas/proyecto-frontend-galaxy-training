@@ -1,0 +1,51 @@
+.container {
+  margin: 0 auto;
+  max-width: 95%;
+  padding: 1rem;
+}
+
+mat-card {
+  max-width: 100%;
+  width: 100%;
+}
+
+mat-card-title {
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+}
+
+mat-card-content {
+  padding: 1.5rem;
+}
+
+app-escuela-busqueda {
+  display: block;
+  width: 100%;
+  margin-bottom: 1rem;
+}
+
+app-escuela-tabla {
+  display: block;
+  width: 100%;
+}
+
+.loading-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  gap: 1rem;
+}
+
+.error-card {
+  margin-top: 1rem;
+}
+
+.error-card mat-card-content {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}

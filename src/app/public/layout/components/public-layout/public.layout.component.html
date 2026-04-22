@@ -1,0 +1,27 @@
+<div class="container">
+    <app-public-navbar [showLoginButton]="true"></app-public-navbar>
+
+    @if (!isSidenavOpened()) {
+    <header>
+        <button style="color: white;" mat-button (click)="isSidenavOpened.set(true)">
+            <mat-icon>menu</mat-icon>
+            Menú
+        </button>
+    </header>
+    }
+
+    <div class="sidenav-container">
+        <mat-sidenav-container>
+            <mat-sidenav #sidenav [mode]="sidenavMode()" [opened]="isSidenavOpened()"
+                (openedChange)="onSidenavChange($event)">
+                <app-public-sidebar></app-public-sidebar>
+            </mat-sidenav>
+            <mat-sidenav-content>
+                <router-outlet></router-outlet>
+            </mat-sidenav-content>
+
+        </mat-sidenav-container>
+    </div>
+
+    <app-footer-component></app-footer-component>
+</div>

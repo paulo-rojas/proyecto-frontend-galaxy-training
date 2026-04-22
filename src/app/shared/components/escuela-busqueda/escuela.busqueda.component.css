@@ -1,0 +1,23 @@
+.filters-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.filter-form {
+  display: flex;
+  gap: 1rem;
+}
+
+
+.filter-form > mat-form-field {
+  flex: 1;
+}
+
+mat-card-subtitle {
+  margin-bottom: 0.5rem;
+}
+
+mat-card-actions button {
+  margin-left: 0.5rem;
+}

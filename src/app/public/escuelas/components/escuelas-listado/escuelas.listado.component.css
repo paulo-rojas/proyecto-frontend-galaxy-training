@@ -1,0 +1,42 @@
+.container {
+  margin: 0 auto;
+  max-width: 1200px;
+  padding: 1rem;
+}
+
+mat-card-title {
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+}
+
+app-escuela-busqueda {
+  display: block;
+  width: 100%;
+  margin-bottom: 1rem;
+}
+
+app-escuela-public-tabla {
+  display: block;
+  width: 100%;
+}
+
+.loading-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  gap: 1rem;
+}
+
+.error-card {
+  margin-top: 1rem;
+}
+
+.error-card mat-card-content {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}

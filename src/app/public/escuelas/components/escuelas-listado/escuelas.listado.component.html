@@ -1,0 +1,28 @@
+<mat-card>
+  <mat-card-title >Escuelas de Conductores</mat-card-title>
+
+  <mat-card-content>
+    <app-escuela-busqueda (buscarOutput)="buscar($event)" (limpiarOutput)="limpiarFiltro()"></app-escuela-busqueda>
+
+    @if (isEscuelasLoading()) {
+    <div class="loading-container">
+      <mat-spinner></mat-spinner>
+      <p>Cargando escuelas...</p>
+    </div>
+    }
+
+    @if (isEscuelasError()) {
+    <mat-card appearance="outlined" class="error-card">
+      <mat-card-content>
+        <mat-icon color="warn">error</mat-icon>
+        <p>Error al cargar las escuelas. Por favor, intente nuevamente.</p>
+      </mat-card-content>
+    </mat-card>
+    }
+
+    @if (!isEscuelasLoading() && !isEscuelasError()) {
+    <app-escuela-public-tabla [escuelas]="escuelas()" [pageInfo]="pageInfo()"
+      (pageChange)="onPageChange($event)"></app-escuela-public-tabla>
+    }
+  </mat-card-content>
+</mat-card>

@@ -1,0 +1,18 @@
+<nav class="navbar-admin">
+  <div class="navbar-content">
+    <div class="navbar-left">
+      <img src="logoGOB-PE.png" alt="Logo Gobierno del Perú" class="navbar-logo" routerLink="/admin" style="cursor: pointer;">
+      <span class="navbar-title">Dirección General de Autorización de Transporte</span>
+    </div>
+    <div class="navbar-right">
+      <div class="user-info">
+        <mat-icon class="user-icon">account_circle</mat-icon>
+        <span class="navbar-username">{{ nombre }}</span>
+      </div>
+      <button mat-raised-button color="warn" (click)="logout()">
+        <mat-icon>logout</mat-icon>
+        Cerrar Sesión
+      </button>
+    </div>
+  </div>
+</nav>

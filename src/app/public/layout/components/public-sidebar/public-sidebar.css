@@ -1,0 +1,46 @@
+:host {
+  flex: 1;
+}
+
+.mat-mdc-chip-set {
+  max-width: 250px;
+}
+
+.custom-chip {
+  margin: 5px;
+  font-size: 16px;
+  background-color: rgb(219, 98, 98);
+  gap: 8px;
+}
+
+::ng-deep .custom-chip span {
+  color: white !important;
+  display: flex;
+  align-items: center;
+  margin: 3px;
+}
+
+::ng-deep .custom-chip.mat-mdc-chip-selected span {
+  color: black !important;
+}
+
+mat-card {
+  background-color: #bf0909;
+  margin: 10px;
+  height: 100%;
+}
+mat-card-title {
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white; 
+  font-size: 20px;
+  font-weight: bold;
+}
+
+mat-card-content {
+  display: flex;
+  justify-content: center;
+}
+

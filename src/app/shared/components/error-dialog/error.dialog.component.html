@@ -1,0 +1,14 @@
+<h2 mat-dialog-title class="error-title">
+  <mat-icon color="warn">error</mat-icon>
+  Error:
+</h2>
+
+<mat-dialog-content>
+  <p class="error-description">{{ data.descripcion }}</p>
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+  <button mat-raised-button color="warn" (click)="onClose()">
+    Aceptar
+  </button>
+</mat-dialog-actions>
